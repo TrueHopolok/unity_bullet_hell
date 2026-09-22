@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject playerBulletPrefab;
-    [SerializeField] bool attackAutomaticaly = false;
+    [SerializeField] bool attackAutomatically = false;
     InputControls controls;
     InputAction attackAction;
     bool attackQueued = false;
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        attackQueued = attackQueued || attackAutomaticaly || attackAction.WasPressedThisFrame();
+        attackQueued = attackQueued || attackAutomatically || attackAction.WasPressedThisFrame();
     }
 
     void FixedUpdate()
