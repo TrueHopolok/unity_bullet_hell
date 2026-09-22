@@ -1,27 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
-    //* Movement properties
-    [SerializeField] float movementSpeed = 5f;
+    [SerializeField] GameObject playerBulletPrefab;
+    [SerializeField] bool attackAutomaticaly = false;
     InputControls controls;
-    InputAction moveAction;
-    Rigidbody2D body;
-
-    //* Attacking properties
     InputAction attackAction;
     bool attackQueued = false;
-    [SerializeField] bool attackAutomaticaly = false;
-    [SerializeField] GameObject playerBulletPrefab;
 
     void Awake()
     {
         controls = new InputControls();
-        moveAction = controls.Player.Move;
         attackAction = controls.Player.Attack;
-        body = GetComponent<Rigidbody2D>();
-        // body.gravityScale = 0f; // can also be disabled in the editor
     }
 
     void Update()
@@ -31,13 +22,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        body.linearVelocity = Vector2.Normalize(moveAction.ReadValue<Vector2>()) * movementSpeed;
-        if (attackQueued) ShootBullet();
+        if (!attackQueued) return;
         attackQueued = false;
-    }
 
-    void ShootBullet()
-    {
         GameObject obj = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
         PlayerBullet script = obj.GetComponent<PlayerBullet>();
         if (script == null) return;
@@ -53,6 +40,7 @@ public class PlayerController : MonoBehaviour
         // get mouse position relative to current object
         script.dir = Vector2.Normalize(mouseWorldPos - transform.position);
     }
+
 
     void OnEnable()
     {
