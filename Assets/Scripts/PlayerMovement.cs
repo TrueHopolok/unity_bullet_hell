@@ -16,9 +16,20 @@ public class PlayerMovement : MonoBehaviour
         // body.gravityScale = 0f; // can also be disabled in the editor
     }
 
+    void Start()
+    {
+        GetComponent<HealthComponent>().Died += OnDeath;
+    }
+
     void FixedUpdate()
     {
         body.linearVelocity = Vector2.Normalize(moveAction.ReadValue<Vector2>()) * movementSpeed;
+    }
+
+    void OnDeath()
+    {
+        GetComponent<HealthComponent>().Died -= OnDeath;
+        enabled = false;
     }
 
     void OnEnable()

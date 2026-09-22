@@ -15,6 +15,11 @@ public class PlayerAttack : MonoBehaviour
         attackAction = controls.Player.Attack;
     }
 
+    void Start()
+    {
+        GetComponent<HealthComponent>().Died += OnDeath;
+    }
+
     void Update()
     {
         attackQueued = attackQueued || attackAutomaticaly || attackAction.WasPressedThisFrame();
@@ -39,6 +44,12 @@ public class PlayerAttack : MonoBehaviour
 
         // get mouse position relative to current object
         script.dir = Vector2.Normalize(mouseWorldPos - transform.position);
+    }
+
+    void OnDeath()
+    {
+        GetComponent<HealthComponent>().Died -= OnDeath;
+        enabled = false;
     }
 
 
