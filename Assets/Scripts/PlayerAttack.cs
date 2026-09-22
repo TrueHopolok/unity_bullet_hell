@@ -63,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
         controls.Disable();
     }
 
-    void OnDispose()
+    void OnDestroy()
     {
         controls.Dispose();
     }
