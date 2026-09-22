@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] public int dmg = 1;
     [SerializeField] public float speed = 10f;
@@ -19,7 +18,8 @@ public class PlayerBullet : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject obj = collision.gameObject;
-        // think about applying dmg
+        HealthComponent health = obj.GetComponent<HealthComponent>();
+        if (health) health.TakeDamage(dmg);
         Destroy(gameObject); // despawn self
     }
 }

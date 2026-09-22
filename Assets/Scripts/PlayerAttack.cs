@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         attackQueued = false;
 
         GameObject obj = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
-        PlayerBullet script = obj.GetComponent<PlayerBullet>();
+        Bullet script = obj.GetComponent<Bullet>();
         if (script == null) return;
 
         // get mouse position on screen, but it may differ in the world
