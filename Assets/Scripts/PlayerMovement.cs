@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void OnDeath()
     {
         GetComponent<HealthComponent>().Died -= OnDeath;
+        body.bodyType = RigidbodyType2D.Static;
         enabled = false;
     }
 

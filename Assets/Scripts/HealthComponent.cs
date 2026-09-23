@@ -14,6 +14,11 @@ public class HealthComponent : MonoBehaviour
         health = maxHealth;
     }
 
+    public bool IsDead()
+    {
+        return health <= 0;
+    }
+
     public int GetHealth()
     {
         return health;
