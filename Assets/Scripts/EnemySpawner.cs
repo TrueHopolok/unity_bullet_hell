@@ -21,11 +21,11 @@ public class EnemySpawner : MonoBehaviour
             respawnRemaining = respawnDuration;
 
             if (spawnpoints.Length <= 0) return;
-            GameObject selectedSpawn = spawnpoints[Random.Range(0, spawnpoints.Length - 1)];
+            GameObject selectedSpawn = spawnpoints[Random.Range(0, spawnpoints.Length)];
             if (selectedSpawn == null) return;
 
             if (enemyPrefabs.Length <= 0) return;
-            GameObject selectedEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length - 1)];
+            GameObject selectedEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             if (selectedEnemy == null) return;
 
             Instantiate(selectedEnemy, selectedSpawn.transform.position, selectedSpawn.transform.rotation);
