@@ -38,6 +38,7 @@ public class BasicEnemyAI : MonoBehaviour
         Vector2 dir = Vector2.Normalize(player.transform.position - transform.position);
         body.linearVelocity = dir * movementSpeed;
 
+        reloadRemaining -= Time.fixedDeltaTime;
         if (reloadRemaining <= 0f)
         {
             reloadRemaining = reloadDuration;
@@ -46,10 +47,6 @@ public class BasicEnemyAI : MonoBehaviour
             Bullet script = obj.GetComponent<Bullet>();
             if (script == null) return;
             script.dir = dir;
-        }
-        else
-        {
-            reloadRemaining -= Time.fixedDeltaTime;
         }
     }
 
