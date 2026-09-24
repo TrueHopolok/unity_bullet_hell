@@ -6,15 +6,21 @@ public class EnemySpawner : MonoBehaviour
     float respawnRemaining;
     [SerializeField] GameObject[] enemyPrefabs;
     GameObject[] spawnpoints;
+    GameObject player;
+    HealthComponent playerHealth;
 
     void Start()
     {
         spawnpoints = GameObject.FindGameObjectsWithTag("Spawnpoint");
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<HealthComponent>();
         respawnRemaining = respawnDuration;
     }
 
     void FixedUpdate()
     {
+        if (player == null || playerHealth == null || playerHealth.IsDead()) return;
+
         respawnRemaining -= Time.fixedDeltaTime;
         if (respawnRemaining <= 0f)
         {
