@@ -138,7 +138,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &208786998
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -195,6 +195,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &208786999
 Transform:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &349360090
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -343,6 +344,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &349360091
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +573,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &555892666
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -628,6 +630,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &555892667
 Transform:
   m_ObjectHideFlags: 0
@@ -672,15 +675,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 4
   m_LightType: 4
   m_BlendStyleIndex: 0
+  m_Light2DProvider:
+    rid: -2
+  m_SelectionSources:
+    rid: 4780361568845561856
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000i
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -695,6 +702,9 @@ MonoBehaviour:
   m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
@@ -712,6 +722,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4780361568845561856
+      type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_SelectedHashCode: 4
+        m_SelectedSource:
+          rid: -2
+        m_Provider2DCache:
+          rid: -2
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -821,7 +844,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &704126439
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -878,6 +901,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &704126440
 Transform:
   m_ObjectHideFlags: 0
@@ -912,7 +936,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1595079537
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -969,6 +993,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1595079538
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,7 +1103,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1602075712
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1135,6 +1160,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1602075713
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,7 +1270,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1646063822
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1301,6 +1327,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1646063823
 Transform:
   m_ObjectHideFlags: 0
@@ -1410,7 +1437,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &1649472988
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1467,6 +1494,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1649472989
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,7 +1529,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1832877374
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1558,6 +1586,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1832877375
 Transform:
   m_ObjectHideFlags: 0
@@ -1649,7 +1678,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1870515922
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1706,6 +1735,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1870515923
 Transform:
   m_ObjectHideFlags: 0
