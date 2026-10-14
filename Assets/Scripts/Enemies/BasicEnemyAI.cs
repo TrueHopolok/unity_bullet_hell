@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class BasicEnemyAI : MonoBehaviour
 {
-    [SerializeField] GameObject enemyBulletPrefab;
-    [SerializeField] float movementSpeed = 1f;
-    [SerializeField] float reloadDuration = 1f;
-    GameObject player;
-    HealthComponent playerHealth;
-    float reloadRemaining;
-    Rigidbody2D body;
-    HealthComponent health;
+    [SerializeField] protected GameObject enemyBulletPrefab;
+    [SerializeField] protected float movementSpeed = 1f;
+    [SerializeField] protected float reloadDuration = 1f;
+    protected GameObject player;
+    protected HealthComponent playerHealth;
+    protected float reloadRemaining;
+    protected Rigidbody2D body;
+    protected HealthComponent health;
 
 
     void Awake()
@@ -29,20 +29,44 @@ public class BasicEnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Stop thinking if player despawns or dies
         if (player == null || playerHealth == null || playerHealth.IsDead())
         {
             body.linearVelocity = Vector2.zero;
             return;
         }
 
+        reloadRemaining = Mathf.Clamp(reloadRemaining - Time.fixedDeltaTime, 0f, reloadDuration);
+        Think();
+    }
+
+    // Think acts as an overridable method
+    // For Updating enemy behaviour
+    // By default will follow the player and shoot whenever he can
+    virtual protected void Think()
+    {
+        Move();
+        Attack();
+    }
+
+    // Move by default moves towards the player
+    // Can be overriden for new behaviour
+    virtual protected void Move()
+    {
         Vector2 dir = Vector2.Normalize(player.transform.position - transform.position);
         body.linearVelocity = dir * movementSpeed;
+    }
 
-        reloadRemaining -= Time.fixedDeltaTime;
+    // Attack the player
+    // By default shoots the bullet, but can be overriden
+    // The reload is handled in the FixedUpdate
+    virtual protected void Attack()
+    {
         if (reloadRemaining <= 0f)
         {
             reloadRemaining = reloadDuration;
 
+            Vector2 dir = Vector2.Normalize(player.transform.position - transform.position);
             GameObject obj = Instantiate(enemyBulletPrefab, transform.position, transform.rotation);
             Bullet script = obj.GetComponent<Bullet>();
             if (script == null) return;
@@ -50,12 +74,12 @@ public class BasicEnemyAI : MonoBehaviour
         }
     }
 
-    void OnDamaged()
+    virtual protected void OnDamaged()
     {
         Debug.Log(string.Format("HP: {0} / {1} = {2}%", health.GetHealth(), health.GetMaxHealth(), health.GetHealth() * 100 / health.GetMaxHealth()));
     }
 
-    void OnDeath()
+    virtual protected void OnDeath()
     {
         health.Damaged -= OnDamaged;
         health.Died -= OnDeath;
